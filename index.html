@@ -1,0 +1,363 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>E-Commerce Product Table</title>
+    <style>
+        body {
+            font-family: 'Arial', sans-serif;
+            margin: 20px;
+            background-color: #f5f5f5;
+        }
+        
+        h1 {
+            color: #333;
+            text-align: center;
+            margin-bottom: 30px;
+        }
+        
+        .table-container {
+            overflow-x: auto;
+            box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+            border-radius: 8px;
+            background: white;
+        }
+        
+        table {
+            width: 100%;
+            border-collapse: collapse;
+        }
+        
+        th, td {
+            padding: 12px 15px;
+            text-align: left;
+            border-bottom: 1px solid #ddd;
+        }
+        
+        th {
+            background-color: #4CAF50;
+            color: white;
+            font-weight: bold;
+            position: sticky;
+            top: 0;
+        }
+        
+        tr:hover {
+            background-color: #f1f1f1;
+        }
+        
+        .firm-icon {
+            width: 40px;
+            height: 40px;
+            border-radius: 50%;
+            object-fit: contain;
+            background-color: white;
+            padding: 2px;
+            border: 1px solid #ddd;
+        }
+        
+        ul.product-description {
+            margin: 0;
+            padding-left: 20px;
+        }
+        
+        ul.product-description li {
+            margin-bottom: 5px;
+            font-size: 14px;
+            color: #555;
+        }
+        
+        .category {
+            padding: 5px 10px;
+            border-radius: 15px;
+            font-size: 12px;
+            font-weight: bold;
+            text-transform: uppercase;
+        }
+        
+        .electronics {
+            background-color: #e3f2fd;
+            color: #1976d2;
+        }
+        
+        .clothing {
+            background-color: #fce4ec;
+            color: #c2185b;
+        }
+        
+        .home {
+            background-color: #fff8e1;
+            color: #ff8f00;
+        }
+        
+        .books {
+            background-color: #e8f5e9;
+            color: #2e7d32;
+        }
+        
+        .beauty {
+            background-color: #f3e5f5;
+            color: #7b1fa2;
+        }
+    </style>
+</head>
+<body>
+    <h1>E-Commerce Products</h1>
+    
+    <div class="table-container">
+        <table>
+            <thead>
+                <tr>
+                    <th>E-Commerce Firm</th>
+                    <th>Icon</th>
+                    <th>Product Name</th>
+                    <th>Product Category</th>
+                    <th>Product Description</th>
+                </tr>
+            </thead>
+            <tbody>
+                <!-- Product 1 -->
+                <tr>
+                    <td>Amazon</td>
+                    <td><img src="https://logo.clearbit.com/amazon.com" alt="Amazon" class="firm-icon"></td>
+                    <td>Echo Dot (4th Gen)</td>
+                    <td><span class="category electronics">Electronics</span></td>
+                    <td>
+                        <ul class="product-description">
+                            <li>Smart speaker with Alexa</li>
+                            <li>Voice control your music</li>
+                            <li>Connects to other smart home devices</li>
+                            <li>Compact design with improved sound quality</li>
+                        </ul>
+                    </td>
+                </tr>
+                
+                <!-- Product 2 -->
+                <tr>
+                    <td>Walmart</td>
+                    <td><img src="https://logo.clearbit.com/walmart.com" alt="Walmart" class="firm-icon"></td>
+                    <td>Men's Athletic Shoes</td>
+                    <td><span class="category clothing">Clothing</span></td>
+                    <td>
+                        <ul class="product-description">
+                            <li>Breathable mesh upper</li>
+                            <li>Cushioned insole for comfort</li>
+                            <li>Rubber outsole for traction</li>
+                            <li>Available in multiple colors</li>
+                        </ul>
+                    </td>
+                </tr>
+                
+                <!-- Product 3 -->
+                <tr>
+                    <td>eBay</td>
+                    <td><img src="https://logo.clearbit.com/ebay.com" alt="eBay" class="firm-icon"></td>
+                    <td>Instant Pot Duo</td>
+                    <td><span class="category home">Home</span></td>
+                    <td>
+                        <ul class="product-description">
+                            <li>7-in-1 multi-functional cooker</li>
+                            <li>Pressure cooker, slow cooker, rice cooker</li>
+                            <li>14 smart programs</li>
+                            <li>Stainless steel cooking pot</li>
+                        </ul>
+                    </td>
+                </tr>
+                
+                <!-- Product 4 -->
+                <tr>
+                    <td>Best Buy</td>
+                    <td><img src="https://logo.clearbit.com/bestbuy.com" alt="Best Buy" class="firm-icon"></td>
+                    <td>Samsung 55" QLED TV</td>
+                    <td><span class="category electronics">Electronics</span></td>
+                    <td>
+                        <ul class="product-description">
+                            <li>4K UHD resolution</li>
+                            <li>Quantum Dot technology</li>
+                            <li>Smart TV with streaming apps</li>
+                            <li>HDR10+ support</li>
+                        </ul>
+                    </td>
+                </tr>
+                
+                <!-- Product 5 -->
+                <tr>
+                    <td>Target</td>
+                    <td><img src="https://logo.clearbit.com/target.com" alt="Target" class="firm-icon"></td>
+                    <td>KitchenAid Stand Mixer</td>
+                    <td><span class="category home">Home</span></td>
+                    <td>
+                        <ul class="product-description">
+                            <li>10-speed slide control</li>
+                            <li>Includes flat beater, dough hook, and wire whip</li>
+                            <li>4.8-quart stainless steel bowl</li>
+                            <li>Multiple color options available</li>
+                        </ul>
+                    </td>
+                </tr>
+                
+                <!-- Product 6 -->
+                <tr>
+                    <td>Etsy</td>
+                    <td><img src="https://logo.clearbit.com/etsy.com" alt="Etsy" class="firm-icon"></td>
+                    <td>Handmade Leather Wallet</td>
+                    <td><span class="category clothing">Clothing</span></td>
+                    <td>
+                        <ul class="product-description">
+                            <li>Genuine leather</li>
+                            <li>Multiple card slots</li>
+                            <li>ID window</li>
+                            <li>Hand-stitched for durability</li>
+                        </ul>
+                    </td>
+                </tr>
+                
+                <!-- Product 7 -->
+                <tr>
+                    <td>Apple</td>
+                    <td><img src="https://logo.clearbit.com/apple.com" alt="Apple" class="firm-icon"></td>
+                    <td>iPhone 13</td>
+                    <td><span class="category electronics">Electronics</span></td>
+                    <td>
+                        <ul class="product-description">
+                            <li>A15 Bionic chip</li>
+                            <li>Super Retina XDR display</li>
+                            <li>Advanced dual-camera system</li>
+                            <li>5G capable</li>
+                        </ul>
+                    </td>
+                </tr>
+                
+                <!-- Product 8 -->
+                <tr>
+                    <td>Zappos</td>
+                    <td><img src="https://logo.clearbit.com/zappos.com" alt="Zappos" class="firm-icon"></td>
+                    <td>Women's Running Shoes</td>
+                    <td><span class="category clothing">Clothing</span></td>
+                    <td>
+                        <ul class="product-description">
+                            <li>Lightweight and breathable</li>
+                            <li>Responsive cushioning</li>
+                            <li>Arch support</li>
+                            <li>Durable rubber outsole</li>
+                        </ul>
+                    </td>
+                </tr>
+                
+                <!-- Product 9 -->
+                <tr>
+                    <td>Wayfair</td>
+                    <td><img src="https://logo.clearbit.com/wayfair.com" alt="Wayfair" class="firm-icon"></td>
+                    <td>Modern Sofa</td>
+                    <td><span class="category home">Home</span></td>
+                    <td>
+                        <ul class="product-description">
+                            <li>Mid-century modern design</li>
+                            <li>Solid wood frame</li>
+                            <li>High-density foam cushions</li>
+                            <li>Available in multiple fabrics</li>
+                        </ul>
+                    </td>
+                </tr>
+                
+                <!-- Product 10 -->
+                <tr>
+                    <td>Barnes & Noble</td>
+                    <td><img src="https://logo.clearbit.com/barnesandnoble.com" alt="Barnes & Noble" class="firm-icon"></td>
+                    <td>The Midnight Library</td>
+                    <td><span class="category books">Books</span></td>
+                    <td>
+                        <ul class="product-description">
+                            <li>By Matt Haig</li>
+                            <li>New York Times bestseller</li>
+                            <li>Fiction about life choices</li>
+                            <li>352 pages</li>
+                        </ul>
+                    </td>
+                </tr>
+                
+                <!-- Product 11 -->
+                <tr>
+                    <td>Sephora</td>
+                    <td><img src="https://logo.clearbit.com/sephora.com" alt="Sephora" class="firm-icon"></td>
+                    <td>Vitamin C Serum</td>
+                    <td><span class="category beauty">Beauty</span></td>
+                    <td>
+                        <ul class="product-description">
+                            <li>Brightens skin tone</li>
+                            <li>Reduces appearance of dark spots</li>
+                            <li>Hydrates and protects skin</li>
+                            <li>Contains antioxidants</li>
+                        </ul>
+                    </td>
+                </tr>
+                
+                <!-- Product 12 -->
+                <tr>
+                    <td>Newegg</td>
+                    <td><img src="https://logo.clearbit.com/newegg.com" alt="Newegg" class="firm-icon"></td>
+                    <td>Gaming Laptop</td>
+                    <td><span class="category electronics">Electronics</span></td>
+                    <td>
+                        <ul class="product-description">
+                            <li>Intel Core i7 processor</li>
+                            <li>NVIDIA RTX 3060 graphics</li>
+                            <li>16GB RAM, 1TB SSD</li>
+                            <li>144Hz refresh rate display</li>
+                        </ul>
+                    </td>
+                </tr>
+                
+                <!-- Product 13 -->
+                <tr>
+                    <td>Home Depot</td>
+                    <td><img src="https://logo.clearbit.com/homedepot.com" alt="Home Depot" class="firm-icon"></td>
+                    <td>Cordless Drill Set</td>
+                    <td><span class="category home">Home</span></td>
+                    <td>
+                        <ul class="product-description">
+                            <li>20V MAX lithium-ion battery</li>
+                            <li>Includes 2 batteries and charger</li>
+                            <li>Variable speed control</li>
+                            <li>LED work light</li>
+                        </ul>
+                    </td>
+                </tr>
+                
+                <!-- Product 14 -->
+                <tr>
+                    <td>Nordstrom</td>
+                    <td><img src="https://logo.clearbit.com/nordstrom.com" alt="Nordstrom" class="firm-icon"></td>
+                    <td>Cashmere Sweater</td>
+                    <td><span class="category clothing">Clothing</span></td>
+                    <td>
+                        <ul class="product-description">
+                            <li>100% pure cashmere</li>
+                            <li>Classic crewneck design</li>
+                            <li>Machine washable</li>
+                            <li>Available in 12 colors</li>
+                        </ul>
+                    </td>
+                </tr>
+                
+                <!-- Product 15 -->
+                <tr>
+                    <td>Ulta Beauty</td>
+                    <td><img src="https://logo.clearbit.com/ulta.com" alt="Ulta" class="firm-icon"></td>
+                    <td>Hydrating Face Mask</td>
+                    <td><span class="category beauty">Beauty</span></td>
+                    <td>
+                        <ul class="product-description">
+                            <li>Infused with hyaluronic acid</li>
+                            <li>Deeply hydrates skin</li>
+                            <li>Soothing formula</li>
+                            <li>Pack of 5 masks</li>
+                        </ul>
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+</body>
+</html>

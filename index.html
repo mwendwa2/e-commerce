@@ -3,361 +3,408 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>E-Commerce Product Table</title>
+    <title>GreenLeaf Organics · live social links</title>
+    <!-- Google Font & simple reset -->
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&display=swap" rel="stylesheet">
     <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
         body {
-            font-family: 'Arial', sans-serif;
-            margin: 20px;
-            background-color: #f5f5f5;
+            font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+            background: #faf9f6;
+            color: #1e2e1c;
+            line-height: 1.5;
+            padding: 2rem 1.5rem;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
         }
-        
-        h1 {
-            color: #333;
-            text-align: center;
-            margin-bottom: 30px;
-        }
-        
-        .table-container {
-            overflow-x: auto;
-            box-shadow: 0 4px 8px rgba(0,0,0,0.1);
-            border-radius: 8px;
+        .page {
+            max-width: 1280px;
+            width: 100%;
             background: white;
+            border-radius: 32px;
+            box-shadow: 0 12px 30px rgba(0,0,0,0.05);
+            padding: 2.5rem 2.2rem;
         }
-        
-        table {
+        /* header + logo row */
+        .company-header {
+            display: flex;
+            align-items: center;
+            gap: 1.25rem;
+            flex-wrap: wrap;
+            margin-bottom: 2.5rem;
+            border-bottom: 2px solid #e7f0e6;
+            padding-bottom: 1.75rem;
+        }
+        .logo-block {
+            display: flex;
+            align-items: center;
+            gap: 1rem;
+        }
+        .logo-icon {
+            background: #3a6b3a;
+            width: 60px;
+            height: 60px;
+            border-radius: 18px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 2rem;
+            font-weight: 700;
+            color: white;
+            box-shadow: 0 6px 12px rgba(58,107,58,0.18);
+        }
+        .company-name {
+            font-size: 2.1rem;
+            font-weight: 700;
+            letter-spacing: -0.02em;
+            color: #1f3b2c;
+        }
+        .company-name span {
+            font-weight: 400;
+            color: #5a7c5a;
+            font-size: 1.9rem;
+        }
+        /* intro paragraph */
+        .intro {
+            background: #edf3eb;
+            padding: 1.8rem 2rem;
+            border-radius: 28px;
+            margin-bottom: 2.8rem;
+            font-size: 1.18rem;
+            border-left: 8px solid #588157;
+            color: #1d3520;
+            box-shadow: 0 2px 6px rgba(0,0,0,0.02);
+        }
+        .intro p {
+            max-width: 90%;
+        }
+        /* section titles */
+        .section-title {
+            font-size: 1.8rem;
+            font-weight: 600;
+            margin-bottom: 1.4rem;
+            color: #2d4f2d;
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+        }
+        .section-title:after {
+            content: '';
+            flex: 1;
+            height: 2px;
+            background: linear-gradient(90deg, #b3cfb3, transparent);
+            margin-left: 0.75rem;
+        }
+        /* ----- TABLE categories ----- */
+        .product-table {
             width: 100%;
             border-collapse: collapse;
+            margin-bottom: 2.8rem;
+            background: white;
+            border-radius: 20px;
+            overflow: hidden;
+            box-shadow: 0 5px 12px rgba(0,0,0,0.04);
         }
-        
-        th, td {
-            padding: 12px 15px;
-            text-align: left;
-            border-bottom: 1px solid #ddd;
-        }
-        
-        th {
-            background-color: #4CAF50;
+        .product-table thead {
+            background: #3f6e4a;
             color: white;
-            font-weight: bold;
-            position: sticky;
-            top: 0;
-        }
-        
-        tr:hover {
-            background-color: #f1f1f1;
-        }
-        
-        .firm-icon {
-            width: 40px;
-            height: 40px;
-            border-radius: 50%;
-            object-fit: contain;
-            background-color: white;
-            padding: 2px;
-            border: 1px solid #ddd;
-        }
-        
-        ul.product-description {
-            margin: 0;
-            padding-left: 20px;
-        }
-        
-        ul.product-description li {
-            margin-bottom: 5px;
-            font-size: 14px;
-            color: #555;
-        }
-        
-        .category {
-            padding: 5px 10px;
-            border-radius: 15px;
-            font-size: 12px;
-            font-weight: bold;
+            font-weight: 600;
             text-transform: uppercase;
+            letter-spacing: 0.03em;
+            font-size: 0.95rem;
         }
-        
-        .electronics {
-            background-color: #e3f2fd;
-            color: #1976d2;
+        .product-table th {
+            padding: 1.1rem 1.5rem;
+            text-align: left;
         }
-        
-        .clothing {
-            background-color: #fce4ec;
-            color: #c2185b;
+        .product-table td {
+            padding: 1.1rem 1.5rem;
+            border-bottom: 1px solid #e2eee2;
+            background-color: #fefefc;
+            color: #1f3a2b;
+            font-weight: 400;
         }
-        
-        .home {
-            background-color: #fff8e1;
-            color: #ff8f00;
+        .product-table tr:last-child td {
+            border-bottom: none;
         }
-        
-        .books {
-            background-color: #e8f5e9;
-            color: #2e7d32;
+        .product-table td:first-child {
+            font-weight: 600;
+            color: #2d572d;
         }
-        
-        .beauty {
-            background-color: #f3e5f5;
-            color: #7b1fa2;
+        .example-list {
+            list-style: none;
+            display: flex;
+            flex-wrap: wrap;
+            gap: 0.4rem 1rem;
+        }
+        .example-list li {
+            background: #f1f7f0;
+            padding: 0.25rem 1rem;
+            border-radius: 30px;
+            font-size: 0.9rem;
+            display: inline-block;
+            color: #2b4b2b;
+        }
+        /* modes of payment — image row */
+        .payment-methods {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 2.2rem 3rem;
+            align-items: center;
+            margin: 1.8rem 0 2.2rem 0;
+            background: #fafcfa;
+            padding: 1.8rem 2rem;
+            border-radius: 44px;
+            border: 1px solid #dfecdf;
+        }
+        .payment-item {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            gap: 0.55rem;
+        }
+        .payment-img {
+            width: 70px;
+            height: 70px;
+            background: white;
+            border-radius: 20px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            box-shadow: 0 8px 14px rgba(0,0,0,0.02);
+            border: 1px solid #e2e9de;
+            padding: 0.6rem;
+            transition: all 0.2s ease;
+        }
+        .payment-img:hover {
+            border-color: #9db89d;
+            box-shadow: 0 12px 18px rgba(94, 138, 94, 0.08);
+        }
+        .payment-img img {
+            max-width: 90%;
+            max-height: 90%;
+            display: block;
+        }
+        .payment-caption {
+            font-weight: 550;
+            color: #365a36;
+            font-size: 0.95rem;
+        }
+        /* fallback text if SVG not supported — but we use emoji / font */
+        .payment-img .placeholder-icon {
+            font-size: 2.6rem;
+            line-height: 1;
+        }
+        /* social section — LIVE LINKS */
+        .social-links {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 2rem;
+            align-items: center;
+            margin-top: 1.4rem;
+            margin-bottom: 0.8rem;
+        }
+        .social-link {
+            display: inline-flex;
+            align-items: center;
+            gap: 0.6rem;
+            background: #f2f7f2;
+            padding: 0.7rem 1.8rem;
+            border-radius: 60px;
+            text-decoration: none;
+            color: #1f3f2a;
+            font-weight: 500;
+            border: 1px solid transparent;
+            transition: 0.15s;
+            font-size: 1.1rem;
+        }
+        .social-link:hover {
+            background: #e0ede0;
+            border-color: #a6c1a6;
+            color: #18361c;
+            transform: scale(1.02);
+        }
+        .social-icon {
+            font-size: 1.7rem;
+        }
+        hr {
+            margin: 2.2rem 0 1.5rem;
+            border: 0;
+            border-top: 1.5px dashed #cbdccb;
+        }
+        .footer-note {
+            color: #557255;
+            font-size: 0.9rem;
+            margin-top: 0.8rem;
+        }
+        @media (max-width: 650px) {
+            .page { padding: 1.8rem; }
+            .company-name { font-size: 1.8rem; }
         }
     </style>
 </head>
 <body>
-    <h1>E-Commerce Products</h1>
-    
-    <div class="table-container">
-        <table>
+    <div class="page">
+        <!--  COMPANY HEADER with logo & name  -->
+        <div class="company-header">
+            <div class="logo-block">
+                <div class="logo-icon" aria-label="Company logo - green leaf">GL</div>
+                <div class="company-name">
+                    GreenLeaf<span>Organics</span>
+                </div>
+            </div>
+            <!-- subtle tagline, optional -->
+            <span style="margin-left: auto; background: #eef4ec; padding: 0.5rem 1.3rem; border-radius: 60px; color: #2e5c2e; font-weight: 500; font-size: 0.95rem;">
+                🌱 since 2012
+            </span>
+        </div>
+
+        <!--  PARAGRAPH – introduction  -->
+        <div class="intro">
+            <p style="font-size: 1.25rem; font-weight: 500; margin-bottom: 0.4rem;">🌿 pure · ethical · local</p>
+            <p>At GreenLeaf Organics, we believe healthy food should be accessible, delicious, and grown with respect for the planet. We partner directly with small regenerative farms across the country to bring you seasonal produce, artisan pantry staples, and zero‑waste kitchen essentials. From farm to doorstep — every product tells a story of care.</p>
+        </div>
+
+        <!--  CATEGORIES OF PRODUCTS + EXAMPLES IN A TABLE  -->
+        <h2 class="section-title">📋 product categories</h2>
+        <table class="product-table">
             <thead>
                 <tr>
-                    <th>E-Commerce Firm</th>
-                    <th>Icon</th>
-                    <th>Product Name</th>
-                    <th>Product Category</th>
-                    <th>Product Description</th>
+                    <th>category</th>
+                    <th>examples</th>
                 </tr>
             </thead>
             <tbody>
-                <!-- Product 1 -->
                 <tr>
-                    <td>Amazon</td>
-                    <td><img src="https://logo.clearbit.com/amazon.com" alt="Amazon" class="firm-icon"></td>
-                    <td>Echo Dot (4th Gen)</td>
-                    <td><span class="category electronics">Electronics</span></td>
+                    <td>🥬 organic produce</td>
                     <td>
-                        <ul class="product-description">
-                            <li>Smart speaker with Alexa</li>
-                            <li>Voice control your music</li>
-                            <li>Connects to other smart home devices</li>
-                            <li>Compact design with improved sound quality</li>
+                        <ul class="example-list">
+                            <li>kale</li>
+                            <li>heirloom tomatoes</li>
+                            <li>sweet potatoes</li>
+                            <li>avocado</li>
                         </ul>
                     </td>
                 </tr>
-                
-                <!-- Product 2 -->
                 <tr>
-                    <td>Walmart</td>
-                    <td><img src="https://logo.clearbit.com/walmart.com" alt="Walmart" class="firm-icon"></td>
-                    <td>Men's Athletic Shoes</td>
-                    <td><span class="category clothing">Clothing</span></td>
+                    <td>🧀 artisan pantry</td>
                     <td>
-                        <ul class="product-description">
-                            <li>Breathable mesh upper</li>
-                            <li>Cushioned insole for comfort</li>
-                            <li>Rubber outsole for traction</li>
-                            <li>Available in multiple colors</li>
+                        <ul class="example-list">
+                            <li>raw almond butter</li>
+                            <li>olive oil</li>
+                            <li>sourdough starter</li>
+                            <li>wildflower honey</li>
                         </ul>
                     </td>
                 </tr>
-                
-                <!-- Product 3 -->
                 <tr>
-                    <td>eBay</td>
-                    <td><img src="https://logo.clearbit.com/ebay.com" alt="eBay" class="firm-icon"></td>
-                    <td>Instant Pot Duo</td>
-                    <td><span class="category home">Home</span></td>
+                    <td>🧴 home & body</td>
                     <td>
-                        <ul class="product-description">
-                            <li>7-in-1 multi-functional cooker</li>
-                            <li>Pressure cooker, slow cooker, rice cooker</li>
-                            <li>14 smart programs</li>
-                            <li>Stainless steel cooking pot</li>
+                        <ul class="example-list">
+                            <li>biodegradable soap</li>
+                            <li>wool dryer balls</li>
+                            <li>bamboo toothbrush</li>
+                            <li>beeswax wraps</li>
                         </ul>
                     </td>
                 </tr>
-                
-                <!-- Product 4 -->
                 <tr>
-                    <td>Best Buy</td>
-                    <td><img src="https://logo.clearbit.com/bestbuy.com" alt="Best Buy" class="firm-icon"></td>
-                    <td>Samsung 55" QLED TV</td>
-                    <td><span class="category electronics">Electronics</span></td>
+                    <td>⚡ wellness boost</td>
                     <td>
-                        <ul class="product-description">
-                            <li>4K UHD resolution</li>
-                            <li>Quantum Dot technology</li>
-                            <li>Smart TV with streaming apps</li>
-                            <li>HDR10+ support</li>
-                        </ul>
-                    </td>
-                </tr>
-                
-                <!-- Product 5 -->
-                <tr>
-                    <td>Target</td>
-                    <td><img src="https://logo.clearbit.com/target.com" alt="Target" class="firm-icon"></td>
-                    <td>KitchenAid Stand Mixer</td>
-                    <td><span class="category home">Home</span></td>
-                    <td>
-                        <ul class="product-description">
-                            <li>10-speed slide control</li>
-                            <li>Includes flat beater, dough hook, and wire whip</li>
-                            <li>4.8-quart stainless steel bowl</li>
-                            <li>Multiple color options available</li>
-                        </ul>
-                    </td>
-                </tr>
-                
-                <!-- Product 6 -->
-                <tr>
-                    <td>Etsy</td>
-                    <td><img src="https://logo.clearbit.com/etsy.com" alt="Etsy" class="firm-icon"></td>
-                    <td>Handmade Leather Wallet</td>
-                    <td><span class="category clothing">Clothing</span></td>
-                    <td>
-                        <ul class="product-description">
-                            <li>Genuine leather</li>
-                            <li>Multiple card slots</li>
-                            <li>ID window</li>
-                            <li>Hand-stitched for durability</li>
-                        </ul>
-                    </td>
-                </tr>
-                
-                <!-- Product 7 -->
-                <tr>
-                    <td>Apple</td>
-                    <td><img src="https://logo.clearbit.com/apple.com" alt="Apple" class="firm-icon"></td>
-                    <td>iPhone 13</td>
-                    <td><span class="category electronics">Electronics</span></td>
-                    <td>
-                        <ul class="product-description">
-                            <li>A15 Bionic chip</li>
-                            <li>Super Retina XDR display</li>
-                            <li>Advanced dual-camera system</li>
-                            <li>5G capable</li>
-                        </ul>
-                    </td>
-                </tr>
-                
-                <!-- Product 8 -->
-                <tr>
-                    <td>Zappos</td>
-                    <td><img src="https://logo.clearbit.com/zappos.com" alt="Zappos" class="firm-icon"></td>
-                    <td>Women's Running Shoes</td>
-                    <td><span class="category clothing">Clothing</span></td>
-                    <td>
-                        <ul class="product-description">
-                            <li>Lightweight and breathable</li>
-                            <li>Responsive cushioning</li>
-                            <li>Arch support</li>
-                            <li>Durable rubber outsole</li>
-                        </ul>
-                    </td>
-                </tr>
-                
-                <!-- Product 9 -->
-                <tr>
-                    <td>Wayfair</td>
-                    <td><img src="https://logo.clearbit.com/wayfair.com" alt="Wayfair" class="firm-icon"></td>
-                    <td>Modern Sofa</td>
-                    <td><span class="category home">Home</span></td>
-                    <td>
-                        <ul class="product-description">
-                            <li>Mid-century modern design</li>
-                            <li>Solid wood frame</li>
-                            <li>High-density foam cushions</li>
-                            <li>Available in multiple fabrics</li>
-                        </ul>
-                    </td>
-                </tr>
-                
-                <!-- Product 10 -->
-                <tr>
-                    <td>Barnes & Noble</td>
-                    <td><img src="https://logo.clearbit.com/barnesandnoble.com" alt="Barnes & Noble" class="firm-icon"></td>
-                    <td>The Midnight Library</td>
-                    <td><span class="category books">Books</span></td>
-                    <td>
-                        <ul class="product-description">
-                            <li>By Matt Haig</li>
-                            <li>New York Times bestseller</li>
-                            <li>Fiction about life choices</li>
-                            <li>352 pages</li>
-                        </ul>
-                    </td>
-                </tr>
-                
-                <!-- Product 11 -->
-                <tr>
-                    <td>Sephora</td>
-                    <td><img src="https://logo.clearbit.com/sephora.com" alt="Sephora" class="firm-icon"></td>
-                    <td>Vitamin C Serum</td>
-                    <td><span class="category beauty">Beauty</span></td>
-                    <td>
-                        <ul class="product-description">
-                            <li>Brightens skin tone</li>
-                            <li>Reduces appearance of dark spots</li>
-                            <li>Hydrates and protects skin</li>
-                            <li>Contains antioxidants</li>
-                        </ul>
-                    </td>
-                </tr>
-                
-                <!-- Product 12 -->
-                <tr>
-                    <td>Newegg</td>
-                    <td><img src="https://logo.clearbit.com/newegg.com" alt="Newegg" class="firm-icon"></td>
-                    <td>Gaming Laptop</td>
-                    <td><span class="category electronics">Electronics</span></td>
-                    <td>
-                        <ul class="product-description">
-                            <li>Intel Core i7 processor</li>
-                            <li>NVIDIA RTX 3060 graphics</li>
-                            <li>16GB RAM, 1TB SSD</li>
-                            <li>144Hz refresh rate display</li>
-                        </ul>
-                    </td>
-                </tr>
-                
-                <!-- Product 13 -->
-                <tr>
-                    <td>Home Depot</td>
-                    <td><img src="https://logo.clearbit.com/homedepot.com" alt="Home Depot" class="firm-icon"></td>
-                    <td>Cordless Drill Set</td>
-                    <td><span class="category home">Home</span></td>
-                    <td>
-                        <ul class="product-description">
-                            <li>20V MAX lithium-ion battery</li>
-                            <li>Includes 2 batteries and charger</li>
-                            <li>Variable speed control</li>
-                            <li>LED work light</li>
-                        </ul>
-                    </td>
-                </tr>
-                
-                <!-- Product 14 -->
-                <tr>
-                    <td>Nordstrom</td>
-                    <td><img src="https://logo.clearbit.com/nordstrom.com" alt="Nordstrom" class="firm-icon"></td>
-                    <td>Cashmere Sweater</td>
-                    <td><span class="category clothing">Clothing</span></td>
-                    <td>
-                        <ul class="product-description">
-                            <li>100% pure cashmere</li>
-                            <li>Classic crewneck design</li>
-                            <li>Machine washable</li>
-                            <li>Available in 12 colors</li>
-                        </ul>
-                    </td>
-                </tr>
-                
-                <!-- Product 15 -->
-                <tr>
-                    <td>Ulta Beauty</td>
-                    <td><img src="https://logo.clearbit.com/ulta.com" alt="Ulta" class="firm-icon"></td>
-                    <td>Hydrating Face Mask</td>
-                    <td><span class="category beauty">Beauty</span></td>
-                    <td>
-                        <ul class="product-description">
-                            <li>Infused with hyaluronic acid</li>
-                            <li>Deeply hydrates skin</li>
-                            <li>Soothing formula</li>
-                            <li>Pack of 5 masks</li>
+                        <ul class="example-list">
+                            <li>moringa powder</li>
+                            <li>turmeric latte</li>
+                            <li>adaptogen blend</li>
+                            <li>probiotic kraut</li>
                         </ul>
                     </td>
                 </tr>
             </tbody>
         </table>
+
+        <!--  VARIOUS MODES OF PAYMENT + IMAGES OF THEM  -->
+        <h2 class="section-title" style="margin-top: 1rem;">💳 payment methods</h2>
+        <div class="payment-methods">
+            <!-- card 1 - Visa / Mastercard (represented by card icon) -->
+            <div class="payment-item">
+                <div class="payment-img">
+                    <span class="placeholder-icon" style="font-size: 2.7rem;">💳</span>
+                </div>
+                <span class="payment-caption">credit / debit</span>
+            </div>
+            <!-- PayPal -->
+            <div class="payment-item">
+                <div class="payment-img">
+                    <span class="placeholder-icon" style="font-size: 2.7rem;">📱</span>
+                </div>
+                <span class="payment-caption">PayPal</span>
+            </div>
+            <!-- Apple Pay -->
+            <div class="payment-item">
+                <div class="payment-img">
+                    <span class="placeholder-icon" style="font-size: 2.7rem;">🍏</span>
+                </div>
+                <span class="payment-caption">Apple Pay</span>
+            </div>
+            <!-- Google Pay -->
+            <div class="payment-item">
+                <div class="payment-img">
+                    <span class="placeholder-icon" style="font-size: 2.7rem;">🅿️</span>
+                </div>
+                <span class="payment-caption">Google Pay</span>
+            </div>
+            <!-- Bitcoin / crypto -->
+            <div class="payment-item">
+                <div class="payment-img">
+                    <span class="placeholder-icon" style="font-size: 2.7rem;">₿</span>
+                </div>
+                <span class="payment-caption">crypto</span>
+            </div>
+            <!-- Bank transfer (image as 🏦) -->
+            <div class="payment-item">
+                <div class="payment-img">
+                    <span class="placeholder-icon" style="font-size: 2.7rem;">🏦</span>
+                </div>
+                <span class="payment-caption">bank transfer</span>
+            </div>
+        </div>
+        <!-- small note: all payment images are represented by clean, modern emoji / icons – scalable and look like vector images -->
+        
+        <!--  SOCIAL MEDIA LINKS — now with REAL links that open official platforms  -->
+        <h2 class="section-title" style="margin-top: 0.5rem;">🌐 join the community</h2>
+        <div class="social-links">
+            <!-- Instagram – official website -->
+            <a href="https://www.instagram.com" target="_blank" rel="noopener noreferrer" class="social-link" aria-label="Instagram">
+                <span class="social-icon">📸</span> Instagram
+            </a>
+            <!-- Twitter (X) – official -->
+            <a href="https://twitter.com" target="_blank" rel="noopener noreferrer" class="social-link" aria-label="Twitter">
+                <span class="social-icon">🐦</span> Twitter
+            </a>
+            <!-- Facebook – official -->
+            <a href="https://www.facebook.com" target="_blank" rel="noopener noreferrer" class="social-link" aria-label="Facebook">
+                <span class="social-icon">📘</span> Facebook
+            </a>
+            <!-- LinkedIn – official -->
+            <a href="https://www.linkedin.com" target="_blank" rel="noopener noreferrer" class="social-link" aria-label="LinkedIn">
+                <span class="social-icon">💼</span> LinkedIn
+            </a>
+            <!-- YouTube – official -->
+            <a href="https://www.youtube.com" target="_blank" rel="noopener noreferrer" class="social-link" aria-label="YouTube">
+                <span class="social-icon">▶️</span> YouTube
+            </a>
+        </div>
+        <hr />
+        <div class="footer-note">
+            ⚡ GreenLeaf Organics — every purchase supports small farmers. 
+            <span style="float: inline-end;">🚚 free shipping over $45</span>
+        </div>
+        <!-- company name, logo, intro, product table, payment images, and social links with real destinations (instagram, twitter, etc.) -->
     </div>
 </body>
 </html>
